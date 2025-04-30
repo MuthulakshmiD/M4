@@ -1,59 +1,83 @@
+### Name : Muthulakshmi D - 212223040122
 # EX-16-LEFT-SHIFT-OPERATION
 ## AIM
-To write a C Program to perform the basic left shift operation for 44 integer number with 3 shifts.
+Write a C program to perform the basic left and right shift operation.
 
 ## ALGORITHM
-1.	Start the program.
-2.	Assign values of a and b as 44 and 3.
-3.	Use left shift operator (<<) and shift the value of a three times.
-4.	Display the result.
-5.	Stop the program.
+1.Input a Number: Read an integer n from the user using scanf.
+2.Left Shift Operation: Perform a left shift on n by 2 bits (n << 2) and store the result in variable a.
+3.Right Shift Operation: Perform a right shift on n by 2 bits (n >> 2) and store the result in variable b.
+4.Display Left Shift Result: Print the value of a after the left shift operation.
+5.Display Right Shift Result: Print the value of b after the right shift operation.
 
 ## PROGRAM
+```
+#include <stdio.h>
+int main()
+{
+    int n,a,b;
+    scanf("%d",&n);
+    a=n<<2;
+    b=n>>2;
+    printf("After Left Shift Operation value of a is:%d\n",a);
+    printf("After Right Shift Operation value of a is:%d",b);
+}
 
+```
 ## OUTPUT
 
-
-
-
-
-
-
-
+![image](https://github.com/user-attachments/assets/75edecc5-d8bf-4650-9f56-bc5d3aa27373)
 
 ## RESULT
-Thus the program to perform the basic left shift operation for 44 integer number with 3 shifts has been executed successfully.
+Thus the program to the basic left and right shift operation with has been executed successfully.
 
 
-
-
- 
- 
-
-
-# EX-17-TWO-NUMBERS-ARE-EQUAL-OR-NOT
+# EX-17- Check Whether a Year Belongs to the 19th Century
 
 
 ## AIM
 
-Write a C Program to check whether the two numbers are equal or not using simple if statement.
+Write a C program to check whether the entered year is 19th century is valid or not using nested if.
 
 ## ALGORITHM
+1.Input the Year: Read an integer value from the user and store it in the variable year.
+2.Validate the Year: Check if the entered year is greater than or equal to 1000.
+3.Check for 19th Century: If valid, check whether the year is between 1900 and 1999 (inclusive).
+4.Display Result:
+If the year is in the range 1900–1999, print "Year is 19th Century."
+Otherwise, print "Year is Not 19th Century."
+5.Handle Invalid Year: If the year is less than 1000, print "Invalid Year."
 
-1.	Start the program.
-2.	Read two numbers.
-3.	If first number is equal to second number, display both are equal.
-4.	Otherwise display both are not equal.
-5.	Stop the program.
 
 ## PROGRAM
+```
+#include <stdio.h>
 
+int main() {
+    int year;
+    scanf("%d", &year);
+
+    if (year >= 1000) {
+        if (year >= 1900 && year <= 1999) {
+            printf("Year is 19th Century.\n");
+        } else {
+            printf("Year is Not 19th Century.\n");
+        }
+    } else {
+        printf("Invalid Year.\n");
+    }
+
+    return 0;
+}
+```
 
 ## OUTPUT
-           
+
+![image](https://github.com/user-attachments/assets/f4a887ea-4206-44e2-a6d6-73ff45f01b31)
+
 ## RESULT
 
-Thus the program to check whether the two numbers are equal or not using simple if statement has been executed successfully
+Thus the program to check whether the entered year is 19th century is valid or not using nested if statement has been executed successfully
  
  
 
@@ -70,11 +94,24 @@ Write a C Program to convert the given string into lowercase.
 5.	Stop the program.
 
 ## PROGRAM
+```
+#include <stdio.h>
+#include <ctype.h>
+int main(){
+    char s[100];
+    scanf("%s",s);
+    int i;
+    for(i=0;s[i]!='\0';i++)
+    {
+        s[i]=tolower(s[i]);
+    }
+    printf("Lower case String is:%s",s);
 
+    
+}
+```
 ## OUTPUT
-
-
-
+![image](https://github.com/user-attachments/assets/184c4345-c2e9-49eb-8088-e57be90ed899)
 
 ## RESULT
 Thus the program to convert the given string into lowercase has been executed successfully
@@ -84,7 +121,7 @@ Thus the program to convert the given string into lowercase has been executed su
 
 # EX-19-COUNT-OF-WORDS-IN-A-STRING
 ## AIM
-Write a C Program to count the total number of words in a given string using do While loop.
+Write a C Program to count the total number of words in a given string using for loop.
 
 ## ALGORITHM
 1.	Start the program.
@@ -95,15 +132,26 @@ Write a C Program to count the total number of words in a given string using do 
 6.	Stop the program.
 
 ## PROGRAM
-
+```
+#include <stdio.h>
+int main()
+{
+    char s[100];
+    scanf("%[^\n]",s);
+    int i,count=0;
+    for(i=0;s[i]!='\0';i++)
+    {
+        if((s[i-1]==' ' && s[i]!=' ')||( i==0 && s[i]!=' '))
+        count++;
+    }
+    printf("%d",count);
+}
+```
 ## OUTPUT
-
-
-
-
+![image](https://github.com/user-attachments/assets/3eeff2d7-7b05-496c-9075-a8cc55738136)
 
 ## RESULT
-Thus the program to count the total number of words in a given string using do While loop has been executed successfully
+Thus the program to count the total number of words in a given string using for loop has been executed successfully
  
  
 
@@ -129,10 +177,49 @@ Step 7: After the loop, check the value of flag:
 Step 8: End the program.
 
 ## PROGRAM
-
+```
+#include <stdio.h>  
+int compare(char[],char[]);  
+int main()  
+{  
+   char str1[20];   
+   char str2[20];  
+   
+   scanf("%s",str1);  
+    
+   scanf("%s",str2);  
+   int c= compare(str1,str2);  
+   if(c==0)  
+   printf("strings are same");  
+   else  
+   printf("strings are not same");  
+  
+    return 0;  
+}  
+  
+// Comparing both the strings.  
+int compare(char a[],char b[])  
+{  
+    int flag=0,i=0;    
+    while(a[i]!='\0' &&b[i]!='\0') 
+    {  
+       if(a[i]!=b[i])  
+       {  
+           flag=1;  
+           break;  
+       }  
+       i++;  
+    }  
+    if(flag==0)  
+    return 0;  
+    else  
+    return 1; 
+}
+```
 
 ## OUTPUT
  
+![image](https://github.com/user-attachments/assets/963e3459-c52c-4259-a9ba-334f8915e643)
 
 ## RESULT
 Thus the C Program to compare two strings without using strcmp() has been executed successfully.
